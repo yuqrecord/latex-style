@@ -1,0 +1,54 @@
+% Copyright (c) 2024 Yuichi Ishida
+%
+% Released under the MIT license.
+% see https://opensource.org/licenses/mit-license.php
+
+\ProvidesPackage{usefulbox}[2024/10/28 v1.0 Customized Box]
+
+% Process Options
+\newif\ifusefulbox@calcdetail@collapse
+\DeclareOption{calccollapse}{\usefulbox@calcdetail@collapsetrue}
+\newif\ifusefulbox@calcdetail@hidden
+\DeclareOption{calchidden}{\usefulbox@calcdetail@hiddentrue}
+\ProcessOptions\relax
+
+% Load Package
+\usepackage{comment}
+\usepackage{environ}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+
+
+%%%%% Normal Box %%%%%
+\newcommand{\usefulbox@normalbox@colframe}{black!80!white}
+\newtcolorbox{normalbox}{colback=white, colframe=\usefulbox@normalbox@colframe}
+
+%%%%% Detail Calculation %%%%%
+\newcommand{\usefulbox@calcdetail@colbacktitle}{black!5!white}
+\newcommand{\usefulbox@calcdetail@colback}{\usefulbox@calcdetail@colbacktitle}
+\newcommand{\usefulbox@calcdetail@colborder}{black}
+\newcommand{\usefulbox@calcdetail@coltitle}{black}
+\ifusefulbox@calcdetail@hidden
+\newcommand{\usefulbox@calcdetail@coltext}{\usefulbox@calcdetail@colback}
+\else
+\newcommand{\usefulbox@calcdetail@coltext}{\usefulbox@calcdetail@coltitle}
+\fi
+\ifusefulbox@calcdetail@collapse
+\excludecomment{calcdetail}
+\else
+\newtcolorbox{calcdetail}{
+boxrule=0pt,
+frame hidden,
+sharp corners,
+enhanced,
+borderline west={1pt}{0pt}{\usefulbox@calcdetail@colborder},
+coltitle=\usefulbox@calcdetail@coltitle,
+coltext=\usefulbox@calcdetail@coltext,
+colbacktitle=\usefulbox@calcdetail@colbacktitle,
+colback=\usefulbox@calcdetail@colback,
+fonttitle=\footnotesize,
+fontupper=\footnotesize,
+nobeforeafter,
+breakable,
+title=計算詳細}
+\fi
