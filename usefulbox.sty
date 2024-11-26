@@ -20,10 +20,14 @@
 
 
 %%%%% Normal Box %%%%%
+%% 角が丸い黒い枠。
 \newcommand{\usefulbox@normalbox@colframe}{black!80!white}
 \newtcolorbox{normalbox}{colback=white, colframe=\usefulbox@normalbox@colframe}
 
 %%%%% Detail Calculation %%%%%
+%% 計算の詳細を記述するための枠。
+%% オプションでcalchiddenを指定すると、文字色と背景色が同じになり文字が見えなくなる。
+%% オプションでcalccollapseを指定すると環境中に記述された内容は枠ごとコメントアウトしたことになる。
 \newcommand{\usefulbox@calcdetail@colbacktitle}{black!5!white}
 \newcommand{\usefulbox@calcdetail@colback}{\usefulbox@calcdetail@colbacktitle}
 \newcommand{\usefulbox@calcdetail@colborder}{black}
