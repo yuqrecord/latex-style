@@ -1,0 +1,13 @@
+% Copyright (c) 2024 Yuichi Ishida
+%
+% Released under the MIT license.
+% see https://opensource.org/licenses/mit-license.php
+
+\ProvidesPackage{yutilpack}[2024/12/01 v1.0 Utilities]
+
+% Load Package
+\usepackage{xparse}
+
+% 多重適用のためのマクロ
+% ex) \MultiApply[\dot][\hat]{x}
+\NewDocumentCommand{\MultiApply}{o o o o o o o o m}{{\IfValueT{#1}{#1} {\IfValueT{#2}{#2} {\IfValueT{#3}{#3} {\IfValueT{#4}{#4} {\IfValueT{#5}{#5} {\IfValueT{#6}{#6} {\IfValueT{#7}{#7} {\IfValueT{#8}{#8} {#9}}}}}}}}}}
