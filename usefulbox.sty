@@ -10,7 +10,10 @@
 \DeclareOption{calccollapse}{\usefulbox@calcdetail@collapsetrue}
 \newif\ifusefulbox@calcdetail@hidden
 \DeclareOption{calchidden}{\usefulbox@calcdetail@hiddentrue}
+\newif\ifusefulbox@english
+\DeclareOption{english}{\usefulbox@englishtrue}
 \ProcessOptions\relax
+
 
 % Load Package
 \usepackage{comment}
@@ -32,6 +35,10 @@
 \newcommand{\usefulbox@calcdetail@colback}{\usefulbox@calcdetail@colbacktitle}
 \newcommand{\usefulbox@calcdetail@colborder}{black}
 \newcommand{\usefulbox@calcdetail@coltitle}{black}
+\newcommand{\usefulbox@calcdetail@title}{計算詳細}
+\ifusefulbox@english
+\renewcommand{\usefulbox@calcdetail@title}{Detailed Calculation}
+\fi
 \ifusefulbox@calcdetail@hidden
 \newcommand{\usefulbox@calcdetail@coltext}{\usefulbox@calcdetail@colback}
 \else
@@ -54,5 +61,7 @@ fonttitle=\footnotesize,
 fontupper=\footnotesize,
 nobeforeafter,
 breakable,
-title=計算詳細}
+toptitle=1mm,
+before=\vspace{1mm},
+title=\usefulbox@calcdetail@title}
 \fi
