@@ -1,0 +1,15 @@
+% Copyright (c) 2025 Yuichi Ishida
+%
+% Released under the MIT license.
+% see https://opensource.org/licenses/mit-license.php
+
+\ProvidesPackage{scaleditemize}[2025/04/20 v1.0 Scaled itemize and enumerate]
+
+% Original Itemize
+\newenvironment{ScaledItemizeFromLARGE}
+{\begin{itemize}\ifcase \number\@itemdepth\relax \or \LARGE \or \Large \or \large \or \noramlsize \fi}
+{\end{itemize}}
+% Original Enumerate
+\newenvironment{ScaledEnumerateFromLARGE}
+{\begin{enumerate}\ifcase \number\@itemdepth\relax \or \LARGE \or \Large \or \large \or \noramlsize \fi}
+{\end{enumerate}}
