@@ -9,7 +9,14 @@
 \newenvironment{ScaledItemizeFromLARGE}
 {\begin{itemize}\ifcase \number\@itemdepth\relax \or \LARGE \or \Large \or \large \or \noramlsize \fi}
 {\end{itemize}}
+\newenvironment{ScaledItemizeFromLarge}
+{\begin{itemize}\ifcase \number\@itemdepth\relax \or \Large \or \large \or \normalsize \or \small \fi}
+{\end{itemize}}
+
 % Original Enumerate
 \newenvironment{ScaledEnumerateFromLARGE}
 {\begin{enumerate}\ifcase \number\@itemdepth\relax \or \LARGE \or \Large \or \large \or \noramlsize \fi}
+{\end{enumerate}}
+\newenvironment{ScaledEnumerateFromLarge}
+{\begin{enumerate}\ifcase \number\@itemdepth\relax \or \Large \or \large \or \normalsize \or \small \fi}
 {\end{enumerate}}
